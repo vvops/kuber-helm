@@ -1,9 +1,9 @@
-apiVersion:  apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: short-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector: 
     matchLabels:
       components: frontend
@@ -15,7 +15,7 @@ spec:
       containers:
         - name: short-cat
           image: antonlarichev/short-app:v1.0
-          imagePullPolicy: Always #постоянно выкатывать обновление имеджа применяется обычно с  image-latest
+          #imagePullPolicy: Always #постоянно выкатывать обновление имеджа применяется обычно с  image-latest
           ports: 
             - containerPort: 80
           resources:
