@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: short-cat
-          image: antonlarichev/short-app:latest
+          image: antonlarichev/short-app:v1.0
           imagePullPolicy: Always #постоянно выкатывать обновление имеджа применяется обычно с  image-latest
           ports: 
             - containerPort: 80

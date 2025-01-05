@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: short-ingress
+  annotations:
+    nginx.igress.kubernetes.io/add-base-url: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: short.demo
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: short-cat-clusterip
+            port: 
+              number: 80
