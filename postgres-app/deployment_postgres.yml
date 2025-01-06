@@ -23,8 +23,16 @@ spec:
             - name: POSTGRES_USER
               value: demo
             - name: POSTGRES_PASSWORD
-              value: demo          
+              value: demo
           resources:
             limits:
               memory: 2Gi
               cpu: 500m
+          volumeMounts:
+            - name: postgres-data
+              mountPath: /var/lib/postgresql/data
+              subPath: postgres
+      volumes:
+        - name: postgres-data
+          persistentVolumeClaim:
+            claimName: postgres-pvc

@@ -6,6 +6,5 @@ spec:
   resources:
     requests:
       storage: 3Gi
-  volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
