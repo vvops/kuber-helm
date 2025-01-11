@@ -16,3 +16,4 @@ kubectl.exe get  secrets pg-secret --template={{.data.PASSWORD}} | base64 -d
 все секреты в кубере не зашифрованы но закодированы в base64 
 5) удалить секрет kubectl.exe delete secret pg-secret
 6) закодировать в base64 echo -n demo | base64 (убрать новую строку в конце нужен ключ -n)
+7) проверка логов в поде kubectl.exe logs short-api-deployment-68b77f9969-vtzwk

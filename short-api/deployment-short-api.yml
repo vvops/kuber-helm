@@ -15,11 +15,11 @@ spec:
       containers:
         - name: api-short-cat
           env:
-            - name: POSTGRES_URL
+            - name: DATABASE_URL
               valueFrom:
                 secretKeyRef:
                   name: secret-for-api
-                  key: POSTGRES_URL
+                  key: DATABASE_URL
           image: antonlarichev/short-api:v1.0
           ports:
             - containerPort: 3000
