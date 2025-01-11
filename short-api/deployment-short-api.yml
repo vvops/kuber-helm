@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: short-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      components: apishort
+  template:
+    metadata:
+      labels:
+        components: apishort
+    spec:
+      containers:
+        - name: api-short-cat
+          env:
+            - name: POSTGRES_URL
+              valueFrom:
+                secretKeyRef:
+                  name: secret-for-api
+                  key: POSTGRES_URL
+          image: antonlarichev/short-api:v1.0
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              memory: "400Mi"
+              cpu: 300m
+# DATABASE url
+# postgres://user:passord@url:5432/db
