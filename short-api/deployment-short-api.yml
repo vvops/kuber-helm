@@ -14,12 +14,6 @@ spec:
     spec:
       containers:
         - name: api-short-cat
-          env:
-            - name: DATABASE_URL
-              valueFrom:
-                secretKeyRef:
-                  name: secret-for-api
-                  key: DATABASE_URL
           image: antonlarichev/short-api:v1.0
           ports:
             - containerPort: 3000
@@ -27,5 +21,19 @@ spec:
             limits:
               memory: "400Mi"
               cpu: 300m
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: secret-for-api
+                  key: DATABASE_URL
+          volumeMounts:
+            - name: test
+              mountPath: /etc/test
+              readOnly: true
+      volumes:
+        - name: test
+          configMap:
+            name: test-config-map     
 # DATABASE url
 # postgres://user:passord@url:5432/db
