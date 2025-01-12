@@ -28,11 +28,11 @@ spec:
                   name: secret-for-api
                   key: DATABASE_URL
           volumeMounts:
-            - name: test
+            - name: test_volum
               mountPath: /etc/test
               readOnly: true
       volumes:
-        - name: test
+        - name: test_volum
           configMap:
             name: test-config-map     
 # DATABASE url
