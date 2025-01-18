@@ -17,4 +17,11 @@ kubectl.exe get  secrets pg-secret --template={{.data.PASSWORD}} | base64 -d
 5) удалить секрет kubectl.exe delete secret pg-secret
 6) закодировать в base64 echo -n demo | base64 (убрать новую строку в конце нужен ключ -n)
 7) проверка логов в поде kubectl.exe logs short-api-deployment-68b77f9969-vtzwk
-8) доступ в контейнер 
+8) доступ в контейнер  
+kubectl.exe exec -it short-api-deployment-5bfcb59d66-kksqf -- bash
+9) Просмотр в реале списка контейнеров kubectl pod --watch
+10) Откат новой установленой версии контейнера 
+kubectl.exe rollout history deployment short-api-deployment  проверка ревизий 
+kubectl.exe apply -f деплоймента
+ОТКАТ НА ПРЕДЫДУЩУЮ ВЕРСИЮ :
+kubectl.exe rollout undo deployment имя_деплоймента --to-revision=2 (номер ревизии для установки)
