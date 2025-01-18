@@ -28,11 +28,29 @@ spec:
                   name: secret-for-api
                   key: DATABASE_URL
           volumeMounts:
-            - name: test_volum
+            - name: testvolume
               mountPath: /etc/test
               readOnly: true
+          livenessProbe:
+            # httpGet:
+            exec:
+              command:
+                - curl 
+                - --fail
+                - http://localhost:3000/api
+            initialDelaySeconds: 30
+            periodSeconds: 5
+            failureThreshold: 1
+          redinessProbe:
+            exec:
+              command:
+                - curl 
+                - --fail
+                - http://localhost:3000/api
+            periodSeconds: 5
+            failureThreshold: 5
       volumes:
-        - name: test_volum
+        - name: testvolume
           configMap:
             name: test-config-map     
 # DATABASE url

@@ -24,4 +24,6 @@ kubectl.exe exec -it short-api-deployment-5bfcb59d66-kksqf -- bash
 kubectl.exe rollout history deployment short-api-deployment  проверка ревизий 
 kubectl.exe apply -f деплоймента
 ОТКАТ НА ПРЕДЫДУЩУЮ ВЕРСИЮ :
+список ревизий kubectl rollout history  deployment deploy_name
 kubectl.exe rollout undo deployment имя_деплоймента --to-revision=2 (номер ревизии для установки)
+11) Стрим работы подов   kubectl get pod --watch
