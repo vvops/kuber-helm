@@ -27,3 +27,4 @@ kubectl.exe apply -f деплоймента
 список ревизий kubectl rollout history  deployment deploy_name
 kubectl.exe rollout undo deployment имя_деплоймента --to-revision=2 (номер ревизии для установки)
 11) Стрим работы подов   kubectl get pod --watch
+12) kubectl get pods -n name_namespace посмотреть поды определенного неймспейса
