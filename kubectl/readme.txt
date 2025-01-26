@@ -28,3 +28,10 @@ kubectl.exe apply -f деплоймента
 kubectl.exe rollout undo deployment имя_деплоймента --to-revision=2 (номер ревизии для установки)
 11) Стрим работы подов   kubectl get pod --watch
 12) kubectl get pods -n name_namespace посмотреть поды определенного неймспейса
+13) установить ns по умолчанию
+kubectl config set-context --current --namespace=имя неймспейса
+14) Вывести список ресурсов 
+kubectl api-resources --namepaced=false
+15) Создание namespace  kubectl create namespace 
+посмотреть поды в определеном  ns  kubectl.exe get pod -n my-space
+Удалить деплоймент в определенном ns kubectl delete deployments.apps short-app-deployment -n my-space 
